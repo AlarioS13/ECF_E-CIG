@@ -1,4 +1,4 @@
-/* your styles go here */
+/* CSS personel du groupe*/
 
 /* Css AS */
 .blocs {
@@ -130,6 +130,15 @@
 	
 	
 }
+
+/*Ajout du redimensionnement des blocks en dessous de 800px (pour les petits écrans)*/
+@media screen and (max-width: 800px) {
+	.column_l_nrik, .column_r_nrik {
+		width: 100%;
+		padding: 0;
+	}
+}
+
 /*pour faire du responsive mais que sur les tout petits ecrans */
 @media screen and (max-width: 600px){
     .deux_L{
@@ -145,3 +154,119 @@
 #overb.box{
 	background-color: white !important;
 }
+
+/* Début CSS perso Enrick */
+
+/* Header/Blog Titre */
+.header_nrik {
+	padding: 30px;
+	margin: 0 15px;
+	text-align: center;
+	background: #efede3;
+	border-radius: 15px;
+}
+
+
+.h1_nrik {
+	color: black;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.h2_nik {
+	color: grey;
+	font-size: 1.8rem;
+	font-weight: 600;
+	font-variant-caps: small-caps;
+}
+
+.h3_nrik {
+	color: black;
+	font-size: 1.12rem;
+	font-style: italic;
+}
+
+/* Left column */
+.column_l_nrik {
+	float: left;
+	width: 75%;
+}
+
+/* Colonne de Droite */
+.column_r_nrik {
+	float: left;
+	width: 25%;
+}
+
+/* Images */
+.img_card_ouvap_nrik {
+	background-color: white;
+	background-image: url(../img/blog-pourquoi2.png);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	margin-bottom: 10px;
+	border: solid 5px white;
+	height: 200px;
+}
+
+.img_card_pk_nrik {
+	background-color: white;
+	background-image: url(../img/blog-pourquoi.png);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	margin-bottom: 10px;
+	border: solid 5px white;
+	height: 200px;
+}
+
+.img_about_nrik {
+	background-color: white;
+	background-image: url(../img/blog-pk-Apropos.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	margin-bottom: 10px;
+	height: 100px;
+	border: solid 3px black;
+}
+
+.img1_mostpop_nrik {
+	background-color: white;
+	background-image: url('../img/blog-pourquoi.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 20px;
+}
+
+.img2_mostpop_nrik {
+	background-color: white;
+	background-image: url('../img/blog-pourquoi2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 20px;
+}
+/*FIN DE GESTION D'IMAGE */
+
+.p_nrik {
+	color:#363636;
+}
+/* Effet de couleur sur les card */
+.card_nrik {
+	background-color: #efede3;
+	padding: 20px;
+	margin: 20px;
+	border-radius: 15px;
+}
+
+.row_nrik:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Fin CSS perso Enrick */

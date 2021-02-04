@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="metier.Abonne"%>
+<%@ page import="metier.Employe" %>
 
 <% 
 Abonne abonne = null;
 if ((Abonne)request.getSession().getAttribute("abonne") != null) {
 	abonne = (Abonne)request.getSession().getAttribute("abonne");
-} ;  %>
+} ;
+Employe employeSession = (Employe)session.getAttribute("employe"); %>
     
   <body>
     <!-- navbar-->
@@ -21,17 +23,17 @@ if ((Abonne)request.getSession().getAttribute("abonne") != null) {
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offre du jour</a><a class="ml-1">Pour P&acirc;ques 10€ offerts sur votre premi&egrave;re commande</a></div>
             <div class="col-lg-6 text-center">
               <ul class="menu list-inline mb-0">
-              <%if (abonne == null) { %>
+              <%if (abonne == null && employeSession == null) { %>
                 <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Connexion</a></li>
                 <li class="list-inline-item"><a href="<%=request.getContextPath()%>/e-cig/enregistrer">S'enregistrer</a></li>
                 
                 <% } else  { %>
-                <li class="list-inline-item"><a href="<%=request.getContextPath()%>/deconnexion">Se deconnecter</a></li>
+                <li class="list-inline-item"><a href="<%=request.getContextPath()%>/deconnexion">Se d&eacute;connecter</a></li>
                 <% } %>
                 <li class="list-inline-item"><a href="<%=request.getContextPath()%>/e-cig/contact">Contact</a></li>
                 
 <!-- Phrase de connexion pour l'utilisateur connecté de type Bonjour nomUtilisateur -->
-                <li class="list-inline-item"><% if (abonne != null){ %> <a href="<%=request.getContextPath()%>/e-cig/profil"> Bonjour <%= abonne.getNom() %> </a> <% } else { %> Bonjour Utilisateur <% } %></li>
+                <li class="list-inline-item"><% if (abonne != null){ %> <a href="<%=request.getContextPath()%>/e-cig/profil"> Bonjour <%= abonne.getNom() %> </a> <% } else if (employeSession != null) {%>Bonjour <%= employeSession.getNomEmploye() %>  <% }else { %> Bonjour Utilisateur <% } %></li>
                 
               </ul>
             </div>
@@ -75,20 +77,21 @@ if ((Abonne)request.getSession().getAttribute("abonne") != null) {
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item"><a class="nav-link active" href="<%=request.getContextPath()%>/e-cig/">Accueil</a></li>
-              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/produits"" class="nav-link">Nos Produits</a></li>
+              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/produits" class="nav-link">Nos Produits</a></li>
               <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Blog<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
                         <h5>Je vapote, tu vapotes </h5>
+<!-- pages personnelles de chaque membre du groupe -->
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/avantages" class="nav-link">Les avantages</a></li>
-                          <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/pourquoi" class="nav-link">Pourquoi je vapote</a></li>
-                          <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/quesaco" class="nav-link">C'est quoi une cigarette &eacute;lctronique?</a></li>
+                          <!-- SOFIEN --><li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/avantages" class="nav-link">Les avantages</a></li>
+                          <!-- ENRICK --><li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/pourquoi" class="nav-link">Pourquoi je vapote</a></li>
+                          <!-- LAURENT --><li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/quesaco" class="nav-link">C'est quoi une cigarette &eacute;lctronique?</a></li>
                         </ul>
                       </div>
-<!-- pages personnelles de chaque membre du groupe -->
+
                       <div class="col-md-6 col-lg-3">
                         <h5>La reglementation </h5>
                         <ul class="list-unstyled mb-3">
@@ -102,9 +105,12 @@ if ((Abonne)request.getSession().getAttribute("abonne") != null) {
                 </ul>
               </li>
               
-              <!-- Lien vers admin / accessible uniquement si Employé connecté -->
-              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin" class="nav-link">Admin</a></li> 
-                      
+                <!-- Lien vers admin / accessible uniquement si Employé connecté -->
+              <% 
+              	if (employeSession != null)		 {
+              %> 
+              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin" class="nav-link">Admin</a></li>
+             <%} %>      
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->

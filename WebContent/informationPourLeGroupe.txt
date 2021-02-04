@@ -6,10 +6,10 @@ De même le title de chaque page doit être dynamique (titre) dans le fichier head
 
 Prévoir :
  
-1 . Liens à mettre à jour.
+1 . Liens à mettre à jour. 
 2 . Ajout de vos JSP et de vos classes
-3 . Codage des pages HTML et CSS perso ( proposition de groupe : partir sur une / deux pages de blog) 
+3 . Codage des pages HTML et CSS perso ( proposition de groupe : partir sur une / deux pages de blog) OK 
 3.bis >>Nota pensez à un lien ou bouton pour revenir vers l'accueil (plus tard il y a aura un lien éventuellement vers une page blog
-avec les liens vers nos blogs respectif).
-4. web.xml  à mettre à jour (voir en commun éventuellement).
+avec les liens vers nos blogs respectif). OK
+4. web.xml  à mettre à jour (voir en commun éventuellement). OK
 5. Si vous voyez d'autre point n'hésitez pas.

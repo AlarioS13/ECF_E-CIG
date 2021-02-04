@@ -46,6 +46,7 @@ public class Master extends HttpServlet {
 		else if (path.endsWith("/faq")) goFaq(request, response);
 		else if (path.endsWith("/admin")) goAdmin(request, response);
 		else if (path.endsWith("/profil")) goProfil(request, response);
+		else if (path.endsWith("/creaEmp")) goCrea(request, response);
 
 		
 
@@ -85,7 +86,7 @@ public class Master extends HttpServlet {
 	}
 	private void goPourquoi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go pourquoi");
-		disp = request.getRequestDispatcher("/WEB-INF/AREMPLACER.jsp");
+		disp = request.getRequestDispatcher("/WEB-INF/vue/blog/pourquoi.jsp");
 		disp.forward(request,response);	
 	}
 	private void goAgeVapo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -95,7 +96,7 @@ public class Master extends HttpServlet {
 	}
 	private void goOuVapo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go ou vpao");
-		disp = request.getRequestDispatcher("/WEB-INF/AREMPLACER.jsp");
+		disp = request.getRequestDispatcher("/WEB-INF/vue/blog/ouvapoter.jsp");
 		disp.forward(request,response);	
 	}
 	private void goQuesaco(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -130,13 +131,20 @@ public class Master extends HttpServlet {
 	}
 	private void goAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go Admin");
-		disp = request.getRequestDispatcher("/WEB-INF/AREMPLACER.jsp");
+		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/listeEmploye.jsp");
 		disp.forward(request,response);	
 	}
 	private void goProfil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go Profil");
 		disp = request.getRequestDispatcher("/WEB-INF/espaceAbonne.jsp");
 		disp.forward(request,response);	
+	}
+	
+	private void goCrea(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Go creation employé");
+		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/creationEmploye.jsp");
+		disp.forward(request,response);
+		
 	}
 	
 	
