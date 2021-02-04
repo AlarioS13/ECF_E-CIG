@@ -41,3 +41,107 @@
 		scroll-behavior: smooth;
 	}
 }
+/* your styles go here */
+/*debut CSS Laurent */
+.bloc {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
+	text-align: justify;
+	
+}
+.wrap_l {
+	display: flex !important;
+	align-items: center;
+  	justify-content: space-around;
+	flex-direction: row !important;
+  	background-color: rgb(41, 63, 50) !important;
+  	color: rgb(255, 255, 255) !important;
+  	border: 2px;
+	border-style: solid;
+	border-color: rgb(218,165,31);
+	margin: 10px;
+	padding: 5px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+  	
+}
+/* le row reverse n'est la que pour garder le meme ordre d'insertion texte/img*/
+.wrap2_l {
+	display: flex !important;
+	align-items: center;
+  	justify-content: space-around;
+	flex-direction: row-reverse !important;
+  	background-color: rgb(2, 68, 64) !important;
+  	color: rgb(255, 255, 255) !important;
+  	border: 2px;
+	border-style: solid;
+	border-color: rgb(218,165,31);
+	margin: 10px;
+	padding: 5px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+}
+.un_L {
+	display: flex;
+  	align-items: center;
+  	
+	margin: 5px;
+  	padding: 3px;
+}
+.deux_L {
+  	
+	margin: 5px;
+  	padding: 3px;
+  	
+}
+.trois_L {
+	
+	margin: 5px;
+  	padding: 3px;
+}
+.quatre_L {
+  
+	margin: 5px;
+  	padding: 3px;
+  	
+}
+
+.arrondi {
+	border-radius:7px;
+}
+.essai_L{
+	text-align: center;
+}
+.conclu_l{
+	display: flex ;
+	align-items: center;
+  	background-color: rgb(2, 68, 64) !important;
+  	color: rgb(255, 255, 255) !important;
+  	border: 2px;
+	border-style: solid;
+	border-color: rgb(218,165,31);
+	margin: 10px;
+	padding: 5px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	
+	
+}
+/*pour faire du responsive mais que sur les tout petits ecrans */
+@media screen and (max-width: 600px){
+    .deux_L{
+        display: none;
+    }
+    .quatre_L{
+    	display: none;
+    }
+}
+	
+/* css pour la page panier*/
+
+#overb.box{
+	background-color: white !important;
+}
