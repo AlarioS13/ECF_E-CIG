@@ -7,13 +7,13 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Titre dynamique -->
 <title><%=titre%></title>
-<meta name="description" content="">
+<meta name="description" content="Site en ligne de vente de cigarette électronique et E-liquide et d'accesoires de cigarette électronique. Votre nouvelle boutique virtuelle pour acheter votre produits de vapotage.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
 <!-- Bootstrap CSS-->
