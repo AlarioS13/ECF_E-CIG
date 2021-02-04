@@ -75,7 +75,7 @@ if ((Abonne)request.getSession().getAttribute("abonne") != null) {
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item"><a class="nav-link active" href="<%=request.getContextPath()%>/e-cig/">Accueil</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Nos Produits</a></li>
+              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/produits"" class="nav-link">Nos Produits</a></li>
               <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Blog<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
