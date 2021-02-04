@@ -1,13 +1,13 @@
-package metier.Pannier;
+package metier.Panier;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-
+import exception.DoublonException;
 import metier.lignCommande.LignCommande;
 import produit.metier.Produit;
 
-public class Pannier {
+public class Panier {
 	public String idPanier;
 	public double montantPanier;
 	public int numeroPanier;
@@ -18,16 +18,16 @@ public class Pannier {
 	
 	//methode pour ajouter un produit au panier
 	
-	public void ajouterProduit(Produit produit) {
+	public void ajouterProduit(Produit produit) throws DoublonException {
 		//control de l'objet
 		Objects.requireNonNull(produit);
 		
 		//l'ajout venant de ListProduit, la quantite ne peut pas etre = 0 ou <0
 		
 		// si le produit est deja dans le panier, on renvoie le message " Produit deja existant"
-		/*for (LignCommande lignCommande : produits) {
+		for (LignCommande lignCommande : produits) {
 			if (produit.equals(lignCommande.getProduit())) 
-						throw new CommandeDoublonException("Produit deja existant");
+						throw new DoublonException("Produit deja existant");
 				}
 		// tout va bien
 				LignCommande lignCommande = new LignCommande(produit);
@@ -35,7 +35,7 @@ public class Pannier {
 				
 				montant += lignCommande.calculMontant();
 				
-	*/			
+				
 			
 	}
 	

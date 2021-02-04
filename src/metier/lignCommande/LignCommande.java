@@ -53,6 +53,12 @@ public class LignCommande {
 	public String toString() {
 		return "LignCommande [quantite=" + quantite + ", produit=" + produit + "]";
 	}
+
+
+	public int calculMontant() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 
 
