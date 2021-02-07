@@ -3,7 +3,7 @@ package dao;
 import java.util.ArrayList;
 import metier.Abonne;
 import metier.Employe;
-import metier.lignPanier.LignPanier;
+import metier.lignCommande.LignCommande;
 import produit.metier.Produit;
 
 public class Dao {
@@ -14,7 +14,7 @@ public class Dao {
 	public static ArrayList<Employe>  employes  = initEmployes();
 	
 	//Laurent création d'une arrayList de lignPanier
-	public static ArrayList<LignPanier> lignPanier = initLignPaniers();
+	public static ArrayList<LignCommande> lignPaniers = initLignPaniers();
 	
 	public static ArrayList<Produit>  produits  = initProduits();
 	
@@ -166,12 +166,12 @@ public class Dao {
 	
 		
 	
-	private static ArrayList<LignPanier> initLignPaniers () {
+	private static ArrayList<LignCommande> initLignPaniers () {
 	
-		ArrayList<LignPanier> listProd = new ArrayList<LignPanier>();
+		ArrayList<LignCommande> listProd = new ArrayList<LignCommande>();
 		
 		
-		return lignPanier;
+		return listProd;
 		
 	}
 
@@ -182,7 +182,7 @@ public class Dao {
 		Produit produit = new Produit(ref);
 		int index = produits.indexOf(produit);
 		if (index != -1) {
-			LignPanier.remove(index);
+			LignCommande.remove(index);
 			ok = true;
 			// TODO : si abonne est celui de la session, remettre à jour la session
 		}

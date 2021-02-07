@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import dao.Dao;
 import metier.Abonne;
+import metier.lignCommande.LignCommande;
+import produit.metier.Produit;
 
 /**
  * Servlet implementation class accesPanier
@@ -40,8 +42,9 @@ public class accesPanier extends HttpServlet {
 String path = request.getPathInfo();
 		
 		System.out.println("je suis dans controleur abonne");
-		if (path == null || path =="/") 					doTricheurBis(request,response);
-		else if (path.startsWith("/monPanier"))				doPanier(path,request,response);
+	//	if (path == null || path =="/") 					doTricheurBis(request,response);
+	//	else if (path.startsWith("/monPanier"))				doPanier(path,request,response);
+		 if (path.startsWith("/ajouterPanier"))				doAjouter(path,request,response);
 		else if (path.startsWith("/supprimer"))				doSupprim(path, request, response);
 		else if (path.startsWith("/modifierPanier"))		doModifier(path, request,response);
 		else { 
@@ -55,10 +58,32 @@ String path = request.getPathInfo();
 
 	private void doModifier(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String chemin = path;
+		int nouvelleQuant = Integer.parseInt(request.getParameter("alterQuant"));
+	//	for (Produit produit : )
+	//	LignCommande.setQuantite(nouvelleQuant);
+		
+		
+		
 		disp = request.getRequestDispatcher("/media/abonne/modifierPanier");
 		disp.forward(request,response);
 
 	}
+	private void doAjouter(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int prodAAjouter = Integer.parseInt(request.getParameter("ref"));
+		for (Produit  produit : Dao.produits) {
+			if (prodAAjouter == produit.getRef()) {
+				LignCommande lignCommande = new LignCommande(produit);
+				Dao.lignPaniers.add(lignCommande);
+				
+				request.setAttribute("produit", lignCommande);
+				disp = request.getRequestDispatcher("/panier");
+				disp.forward(request,response);
+			}
+		}
+		
+	}
+	
 
 	private void doSupprim(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

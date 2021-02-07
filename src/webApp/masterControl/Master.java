@@ -47,6 +47,7 @@ public class Master extends HttpServlet {
 		else if (path.endsWith("/admin")) goAdmin(request, response);
 		else if (path.endsWith("/profil")) goProfil(request, response);
 		else if (path.endsWith("/creaEmp")) goCrea(request, response);
+		else if (path.startsWith("/ajouterPanier"))		goAjouterPanier(request,response);
 
 		
 
@@ -62,6 +63,9 @@ public class Master extends HttpServlet {
 	}
 
 	
+	
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
@@ -147,7 +151,11 @@ public class Master extends HttpServlet {
 		
 	}
 	
-	
+	private void goAjouterPanier(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		disp = request.getRequestDispatcher("/panier");
+		disp.forward(request,response);	
+		
+	}
 	
 
 }
