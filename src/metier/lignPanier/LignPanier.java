@@ -1,14 +1,14 @@
-package metier.lignCommande;
+package metier.lignPanier;
 
 import java.util.Objects;
 
 import produit.metier.Produit;
 
-public class LignCommande {
+public class LignPanier {
 	public int quantite;
 	public Produit produit;
 	
-	public LignCommande (int quantite, Produit produit) {
+	public LignPanier (int quantite, Produit produit) {
 		this.quantite = quantite;
 		this.produit = produit;
 	}
@@ -16,7 +16,7 @@ public class LignCommande {
 	
 	//Quand le produit est ajouté depuis la ListProduit la quantite est de 1 
 	
-	public LignCommande(Produit produit) {
+	public LignPanier(Produit produit) {
 		this.quantite = 1;
 		this.produit = produit;
 	}
@@ -58,6 +58,12 @@ public class LignCommande {
 	public int calculMontant() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+	public static void remove(int index) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

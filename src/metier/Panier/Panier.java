@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import exception.DoublonException;
-import metier.lignCommande.LignCommande;
+import metier.lignPanier.LignPanier;
 import produit.metier.Produit;
 
 public class Panier {
@@ -12,7 +12,7 @@ public class Panier {
 	public double montantPanier;
 	public int numeroPanier;
 	public int montant;
-	private ArrayList<LignCommande> produits;
+	private ArrayList<LignPanier> produits;
 	
 	
 	
@@ -25,12 +25,12 @@ public class Panier {
 		//l'ajout venant de ListProduit, la quantite ne peut pas etre = 0 ou <0
 		
 		// si le produit est deja dans le panier, on renvoie le message " Produit deja existant"
-		for (LignCommande lignCommande : produits) {
+		for (LignPanier lignCommande : produits) {
 			if (produit.equals(lignCommande.getProduit())) 
 						throw new DoublonException("Produit deja existant");
 				}
 		// tout va bien
-				LignCommande lignCommande = new LignCommande(produit);
+				LignPanier lignCommande = new LignPanier(produit);
 				produits.add(lignCommande);
 				
 				montant += lignCommande.calculMontant();
@@ -56,7 +56,7 @@ public class Panier {
 	public String toString() {
 		return "Pannier [idPanier=" + idPanier + ", montantPanier=" + montantPanier + "]";
 	}
-	public ArrayList<LignCommande> getProduits() {
+	public ArrayList<LignPanier> getProduits() {
 		return produits;
 	}
 	
