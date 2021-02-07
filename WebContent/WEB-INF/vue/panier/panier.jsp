@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="produit.metier.Produit" %>
+<%@ page import="metier.lignCommande.LignCommande" %>
+<%@ page import="metier.technique.LignCommandes" %>
+<% request.getAttribute("produit"); %>
+
 <% request.setAttribute("titre", "Mon panier"); %>
 <%@ include file="/WEB-INF/include/head.jsp" %>
 
@@ -30,36 +35,31 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th colspan="2" name="orderProd">Produit</th>
-                          <th  name="orderQuant">Quantité</th>
+                          <th colspan="2">Produit</th>
+                          <th >Quantité</th>
                           <th>Prix unitaire TTC</th>
                           <th>Remise</th>
                           <th colspan="2">Total</th>
                         </tr>
                       </thead>
                       <tbody>
+                      
+                     
+                	
+					<%for (LignCommande lignCommande : lignCommandes) { %>
                         <tr>
-                          <td><a href="#"><img src="<%=request.getContextPath()%>/img/aegis.png" alt=" boxe Aegis"></a></td>
-                          <td><a href="#">Boxe Aegis</a></td>
+                          <td><a href="#"><img src="<%=request.getContextPath() %>/img/<%=lignCommande.getProduit().getImage() %>"  alt="" class="img-fluid"></a></td>
+                          <td><a href="#"><%=lignCommande.getProduit().getNom() %></a></td>
                           <td>
-                            <input type="number" value="1" class="form-control" name="alterQuant">
+                            <input type="number" value="<%=lignCommande.getQuantite() %>" class="form-control" name="alterQuant">
                           </td>
-                          <td>48,90€</td>
+                          <td><%=lignCommande.getProduit().getPrix() %></td>
                           <td>0,00€</td>
-                          <td>48,90€</td>
+                          <td><%=lignCommande.getProduit().getPrix() %>€</td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
-                        <tr>
-                          <td><a href="#"><img src="<%=request.getContextPath()%>/img/eliquid.png" alt="e-liquide"></a></td>
-                          <td><a href="#">E-liquide</a></td>
-                          <td>
-                            <input type="number" value="3" class="form-control">
-                          </td>
-                          <td>6,90€</td>
-                          <td>0,00€</td>
-                          <td>20,70€</td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
+                     <%}%>
+                        
                       </tbody>
                       <tfoot>
                         <tr>

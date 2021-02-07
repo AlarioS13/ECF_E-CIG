@@ -70,7 +70,7 @@
                       <p class="price"> 
                         <del></del><%=produit.getPrix() %>
                       </p>
-                      <p class="buttons"><a href="<%=request.getContextPath() %>/ajouterPanier?ref=<%=produit.getRef() %>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Ajouter au panier</a></p>
+                      <p class="buttons"><a href="<%=request.getContextPath() %>/Ajouter/Panier?ref=<%=produit.getRef() %>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Ajouter au panier</a></p>
                     </div>
                     <!-- /.text-->
                   </div>
