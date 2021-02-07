@@ -45,7 +45,7 @@ String path = request.getPathInfo();
 		System.out.println("je suis dans controleur abonne");
 	//	if (path == null || path =="/") 					doTricheurBis(request,response);
 	//	else if (path.startsWith("/monPanier"))				doPanier(path,request,response);
-		 if (path.startsWith("/ajouter"))				doAjouter(path,request,response);
+		 if (path.startsWith("/ajouter*"))				doAjouter(path,request,response);
 		else if (path.startsWith("/supprimer"))				doSupprim(path, request, response);
 		else if (path.startsWith("/modifierPanier"))		doModifier(path, request,response);
 		else { 
