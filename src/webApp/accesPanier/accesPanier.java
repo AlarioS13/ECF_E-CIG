@@ -74,8 +74,9 @@ String path = request.getPathInfo();
 		int prodAAjouter = Integer.parseInt(request.getParameter("ref"));
 		for (Produit  produit : Dao.produits) {
 			if (prodAAjouter == produit.getRef()) {
+				Produit prod = produit;
 				LignCommande lignCommande = new LignCommande(produit);
-				
+				lignCommande.add(prod);
 				
 				request.setAttribute("produit", lignCommande);
 				disp = request.getRequestDispatcher("/panier");

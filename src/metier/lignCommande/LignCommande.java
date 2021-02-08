@@ -67,6 +67,12 @@ public class LignCommande {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	public void add(Produit prod) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 
