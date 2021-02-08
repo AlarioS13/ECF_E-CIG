@@ -16,7 +16,7 @@
               <!-- breadcrumb-->
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/index.jsp">Accueil</a></li>
+                  <li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/e-cig/accueil">Accueil</a></li>
                   <li aria-current="page" class="breadcrumb-item active">S'enregistrer / Se connecter</li>
                 </ol>
               </nav>

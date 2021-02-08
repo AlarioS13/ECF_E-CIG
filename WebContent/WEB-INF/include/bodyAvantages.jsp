@@ -86,6 +86,6 @@
 				vous attendent pour fabriquer votre propre e-liquide maison
 				économique !</p>
 		</div>
-		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+		<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 	</div>
 </section>

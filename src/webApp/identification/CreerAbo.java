@@ -27,6 +27,7 @@ public class CreerAbo extends HttpServlet {
 		abo.setNom(nom);
 		abo.setPw(pw);
 		abo.setMail(mail);
+		abo.setIdAbonne("000");
 		
 		Dao.addAbonne(abo);
 		
