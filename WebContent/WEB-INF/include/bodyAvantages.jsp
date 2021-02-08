@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 
 <section>
-	<div class="blocs">
-		<div class="bloc">
+	<div class="blocsAS">
+		<div class="blocAS">
 			<h2>L'avantage santé de la cigarette électronique par rapport au
 				tabac</h2>
 			<p>Selon une étude du Public Health England, la cigarette
@@ -31,7 +31,7 @@
 				jusqu'ici perdues en partie.</p>
 		</div>
 
-		<div class="bloc">
+		<div class="blocAS">
 			<h2>Santé publique et écologie : 2 autres atouts de la cigarette
 				électronique</h2>
 			<p>Arrêter de fumer c'est bien pour soi, mais aussi pour les
@@ -62,7 +62,7 @@
 				(pod, résistances, batteries), choisissez du matériel durable et
 				pensez à trier vos déchets !</p>
 		</div>
-		<div class="bloc">
+		<div class="blocAS">
 			<h2>La cigarette électronique est économique</h2>
 			<p>Autre avantage de la cigarette électronique, c'est qu'elle est
 				économique ! Avec plus de 8' le paquet de cigarettes, le prix du
@@ -86,20 +86,6 @@
 				vous attendent pour fabriquer votre propre e-liquide maison
 				économique !</p>
 		</div>
-		<div class="goUpBtn">
-			<a href="#"> <svg xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
-					y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100"
-					xml:space="preserve">
-					<g>	<g>	<g><g><g><g><path
-						d="M61.8,83c-3,1.1-1.7,5.9,1.3,4.8c13.2-4.5,23.8-16.2,27.1-29.8C96.1,33.9,75,9.7,50.5,11.2C39.1,12,28.4,18,21.5,27.1        c-7.9,10.4-9.5,23.5-5.9,35.8c0.1,0.2,0.2,0.4,0.3,0.6c0.4,0.7,1.1,1.3,2.1,1.3c11.7,0,23.4,0,35.1,0c1.1,0,1.8-0.8,1.8-0.8        c0.4-0.4,0.7-1,0.7-1.7c0-7.3,0-14.5,0-21.8c2.5,2.5,4.9,4.9,7.4,7.4c2.3,2.3,5.8-1.3,3.5-3.5c-3.9-3.9-7.8-7.8-11.8-11.8        c-0.5-0.5-1.2-0.8-1.8-0.7c-0.6,0-1.2,0.2-1.8,0.7c-3.8,3.8-7.7,7.7-11.5,11.5c-2.3,2.3,1.3,5.8,3.5,3.5        c2.5-2.5,4.9-4.9,7.4-7.4c0,6.5,0,13,0,19.6c-10.2,0-20.4,0-30.6,0C16.7,46.6,20.4,33,31.2,24.1c10.4-8.5,24.9-10.4,36.9-4.1        C79.4,25.8,87,39.3,86.2,52C85.2,65.8,74.6,78.6,61.8,83z" /></g></g></g></g></g></g>
-					<text x="0" y="115" fill="#000000" font-size="5px"
-						font-weight="bold"
-						font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by MRFA</text>
-					<text x="0" y="120" fill="#000000" font-size="5px"
-						font-weight="bold"
-						font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-			</a>
-		</div>
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	</div>
 </section>

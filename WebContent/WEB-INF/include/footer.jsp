@@ -83,5 +83,6 @@
     <script src="<%=request.getContextPath()%>/js/front.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
     <script src="<%=request.getContextPath()%>/js/map.js"></script>
+    <script src="<%=request.getContextPath()%>/js/password.js"></script>
   </body>
 </html>

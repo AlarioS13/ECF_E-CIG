@@ -32,7 +32,6 @@ public class CreerAbo extends HttpServlet {
 		
 		response.sendRedirect("e-cig/accueil");
 
-
 		
 	}
 

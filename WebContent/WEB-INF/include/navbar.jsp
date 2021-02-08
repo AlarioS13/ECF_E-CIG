@@ -8,7 +8,10 @@ Abonne abonne = null;
 if ((Abonne)request.getSession().getAttribute("abonne") != null) {
 	abonne = (Abonne)request.getSession().getAttribute("abonne");
 } ;
-Employe employeSession = (Employe)session.getAttribute("employe"); %>
+Employe employeSession = null;
+if ((Employe)session.getAttribute("employe") != null) {
+	employeSession = (Employe)session.getAttribute("employe");
+}; %>
     
   <body>
     <!-- navbar-->
@@ -33,7 +36,12 @@ Employe employeSession = (Employe)session.getAttribute("employe"); %>
                 <li class="list-inline-item"><a href="<%=request.getContextPath()%>/e-cig/contact">Contact</a></li>
                 
 <!-- Phrase de connexion pour l'utilisateur connecté de type Bonjour nomUtilisateur -->
-                <li class="list-inline-item"><% if (abonne != null){ %> <a href="<%=request.getContextPath()%>/e-cig/profil"> Bonjour <%= abonne.getNom() %> </a> <% } else if (employeSession != null) {%>Bonjour <%= employeSession.getNomEmploye() %>  <% }else { %> Bonjour Utilisateur <% } %></li>
+                <li class="list-inline-item">
+                <% if (abonne != null){ %> 
+                	<a href="<%=request.getContextPath()%>/e-cig/profil"> Bonjour <%= abonne.getNom() %> </a>
+                	 <% } else if (employeSession != null) {%>
+                	 Bonjour <%= employeSession.getNomEmploye() %>  
+                	 <% }else { %> Bonjour Utilisateur <% } %></li>
                 
               </ul>
             </div>

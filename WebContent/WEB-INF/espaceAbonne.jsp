@@ -56,7 +56,7 @@ if (abonne != null) {
 									<input id="password-field" type="password" class="form-control"
 										name="password" value="<%= pw %>"> 
 										<span toggle="#password-field"
-										class="fa fa-fw fa-eye field-icon toggle-password text-body"></span>
+										class="far fa-eye field-icon toggle-password text-body"></span>
 
 								</div>
 								<div class="form-group col-4">
@@ -81,5 +81,4 @@ if (abonne != null) {
 	</div>
 </section>
 
-<script src="<%=request.getContextPath()%>/js/password.js"></script>
 <%@ include file="/WEB-INF/include/footer.jsp" %>
