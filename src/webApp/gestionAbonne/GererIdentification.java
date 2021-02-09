@@ -1,4 +1,4 @@
-package webApp.identification;
+package webApp.gestionAbonne;
 
 import java.io.IOException;
 
@@ -47,8 +47,8 @@ public class GererIdentification extends HttpServlet {
 		// Vérification de l'existence dans la liste des employés de la dao
 		Employe employe = Dao.getEmploye(mail, pw);
 		
-		if (Dao.getAbonne(mail, pw) != null) {
-			a = Dao.getAbonne(mail, pw);
+		if (Dao.getAbonneByMail(mail) != null) {
+			a = Dao.getAbonneByMail(mail);
 			// Je fais un abonné qui n'a pas le password dans son contenu
 			Abonne abosess= new Abonne(a.getMail());
 			abosess.setNom(a.getNom());

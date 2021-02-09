@@ -1,4 +1,4 @@
-package webApp.identification;
+package webApp.gestionAbonne;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -30,7 +30,7 @@ public class ModifAbo extends HttpServlet {
 		abonne.setMail(mail);
 		
 		// Je modifie l'abonné EN DAO dont l'id est le meme
-		Dao.setAbonne(abonne);
+		Dao.setAbonneWithMail(abonne);
 		
 		// J'actualise l'abonné en session 
 //		abonneSession.setNom(abonne.getNom());

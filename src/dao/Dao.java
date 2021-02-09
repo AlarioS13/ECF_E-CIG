@@ -11,7 +11,38 @@ public class Dao {
 	// Enrick création d'une arrêt liste employé
 	public static ArrayList<Employe>  employes  = initEmployes();
 	// SOFIEN
-	public static Abonne getAbonne(String mail, String pw) {
+	
+	public static Abonne getAbonneById(String id) {
+
+		Abonne abonne = null;
+		Abonne abo = new Abonne();
+		abo.setIdAbonne(id);
+		if (Dao.abonnes.indexOf(abo) >= 0) 
+			abonne = Dao.abonnes.get(Dao.abonnes.indexOf(abo));
+	
+		return abonne;
+	}
+	public static void setAbonneWithId(Abonne abonne) {
+		Abonne abo = getAbonneById(abonne.getIdAbonne());
+		if (abo != null) {
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setNom(abonne.getNom());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPrenom(abonne.getPrenom());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPw(abonne.getPw());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setMail(abonne.getMail());
+		}
+	}
+	
+	public static void setAbonneWithMail(Abonne abonne) {
+		Abonne abo = getAbonneByMail(abonne.getMail());
+		if (abo != null) {
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setNom(abonne.getNom());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPrenom(abonne.getPrenom());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPw(abonne.getPw());
+			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setMail(abonne.getMail());
+		}
+	}
+	
+	public static Abonne getAbonneByMail(String mail, String pw) {
 		
 		Abonne a = null;
 		for (Abonne abonne : Dao.abonnes) {
@@ -23,7 +54,7 @@ public class Dao {
 		return a;
 	}
 	
-	public static Abonne getAbonne(String email) {
+	public static Abonne getAbonneByMail(String email) {
 
 		Abonne abonne = null;
 		Abonne abo = new Abonne(email);
@@ -33,15 +64,7 @@ public class Dao {
 		return abonne;
 	}
 	
-	public static void setAbonne(Abonne abonne) {
-		Abonne abo = getAbonne(abonne.getMail());
-		if (abo != null) {
-			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setNom(abonne.getNom());
-			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPrenom(abonne.getPrenom());
-			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setPw(abonne.getPw());
-			Dao.abonnes.get(Dao.abonnes.indexOf(abo)).setMail(abonne.getMail());
-		}
-	}
+
 	
 	public static void addAbonne(Abonne abonne) {
 		if(abonne != null && abonne.getIdAbonne() != null)
@@ -52,7 +75,14 @@ public class Dao {
 	public static ArrayList<Abonne> initA() {
 		ArrayList<Abonne> abonnes = new ArrayList<Abonne>();
 		Abonne a1 = new Abonne("001", "Dupond", "Jean", "aa","dupond@mail.fr");
+		Abonne a2 = new Abonne("002", "Dupon", "Jean", "aa","dupon@mail.fr");
+		Abonne a3 = new Abonne("003", "Dupont", "Jean", "aa","dupont@mail.fr");
+		Abonne a4 = new Abonne("004", "Duponk", "Jean", "aa","duponk@mail.fr");
+
 		abonnes.add(a1);
+		abonnes.add(a2);
+		abonnes.add(a3);
+		abonnes.add(a4);
 		return abonnes;
 
 	}

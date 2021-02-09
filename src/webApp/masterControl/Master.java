@@ -47,6 +47,7 @@ public class Master extends HttpServlet {
 		else if (path.endsWith("/admin")) goAdmin(request, response);
 		else if (path.endsWith("/profil")) goProfil(request, response);
 		else if (path.endsWith("/creaEmp")) goCrea(request, response);
+		else if (path.endsWith("/listeAbo")) goListeAbo(request, response);
 
 		
 
@@ -95,7 +96,7 @@ public class Master extends HttpServlet {
 		disp.forward(request,response);	
 	}
 	private void goOuVapo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Go ou vpao");
+		System.out.println("Go ou vapo");
 		disp = request.getRequestDispatcher("/WEB-INF/vue/blog/ouvapoter.jsp");
 		disp.forward(request,response);	
 	}
@@ -134,6 +135,11 @@ public class Master extends HttpServlet {
 		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/listeEmploye.jsp");
 		disp.forward(request,response);	
 	}
+	private void goListeAbo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Go sur liste abonnÃ©");
+		disp = request.getRequestDispatcher("/WEB-INF/vue/abonneListe.jsp");
+		disp.forward(request,response);	
+	}
 	private void goProfil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go Profil");
 		disp = request.getRequestDispatcher("/WEB-INF/espaceAbonne.jsp");
@@ -141,7 +147,7 @@ public class Master extends HttpServlet {
 	}
 	
 	private void goCrea(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Go creation employé");
+		System.out.println("Go creation employï¿½");
 		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/creationEmploye.jsp");
 		disp.forward(request,response);
 		

@@ -86,6 +86,8 @@ if ((Employe)session.getAttribute("employe") != null) {
             <ul class="navbar-nav mr-auto">
               <li class="nav-item"><a class="nav-link active" href="<%=request.getContextPath()%>/e-cig/">Accueil</a></li>
               <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/produits" class="nav-link">Nos Produits</a></li>
+              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/produits" class="nav-link">Nos Produits</a></li>
+              
               <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Blog<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
@@ -117,7 +119,32 @@ if ((Employe)session.getAttribute("employe") != null) {
               <% 
               	if (employeSession != null)		 {
               %> 
-              <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin" class="nav-link">Admin</a></li>
+              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">ADMIN<b class="caret"></b></a>
+                <ul class="dropdown-menu megamenu">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Gestion employé</h5>
+<!-- pages personnelles de chaque membre du groupe -->
+                        <ul class="list-unstyled mb-3">
+                          <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin" class="nav-link">Liste des employés</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link"> --- </a></li>
+                          <li class="nav-item"><a href="#"> --- </a></li>
+                        </ul>
+                      </div>
+
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Gestion abonné </h5>
+                        <ul class="list-unstyled mb-3">
+                         <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/listeAbo" class="nav-link">Liste des abonnés </a></li>
+                         <li class="nav-item"><a href="#" class="nav-link"> --- </a></li>
+                         <li class="nav-item"><a href="#" class="nav-link"> --- </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
              <%} %>      
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">

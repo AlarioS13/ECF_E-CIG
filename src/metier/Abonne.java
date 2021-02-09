@@ -69,7 +69,10 @@ public class Abonne {
 		boolean retour = false;
 		if (obj != null && obj instanceof Abonne) {
 			Abonne abonne = (Abonne)obj;
-			retour = abonne.getMail().equals(this.mail) ;
+			retour = abonne.getMail().equals(this.mail);
+			if (!retour) {
+				retour = abonne.getIdAbonne().equals(this.idAbonne);
+			};
 		}
 		return retour;
 	}
