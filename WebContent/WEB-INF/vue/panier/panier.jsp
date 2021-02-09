@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="produit.metier.Produit" %>
 <%@ page import="metier.lignCommande.LignCommande" %>
-<%@ page import="metier.technique.LignCommandes" %>
+<%@ page import="metier.panier.Panier %>
 <% request.getAttribute("produit"); %>
 
 <% request.setAttribute("titre", "Mon panier"); %>

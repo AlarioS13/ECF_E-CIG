@@ -1,4 +1,4 @@
-package metier.Panier;
+package metier.panier;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -8,44 +8,53 @@ import metier.lignCommande.LignCommande;
 import produit.metier.Produit;
 
 public class Panier {
-	public String idPanier;
+	private static int idPanier = 1;
 	public double montantPanier;
-	public int numeroPanier;
-	public int montant;
-	private ArrayList<LignCommande> produits;
+	
+	
+	private ArrayList<LignCommande> panier;
+	
+	
+	
+	
+	
 	
 	
 	
 	//methode pour ajouter un produit au panier
 	
-	public void ajouterProduit(Produit produit) throws DoublonException {
+	public Panier(ArrayList<LignCommande> panier) {
+		super();
+		this.montantPanier = 0;
+		this.panier = panier;
+	}
+
+	public void ajouterlignCom(LignCommande lignCommande) throws DoublonException {
 		//control de l'objet
-		Objects.requireNonNull(produit);
+		Objects.requireNonNull(lignCommande);
 		
 		//l'ajout venant de ListProduit, la quantite ne peut pas etre = 0 ou <0
 		
 		// si le produit est deja dans le panier, on renvoie le message " Produit deja existant"
-		for (LignCommande lignCommande : produits) {
-			if (produit.equals(lignCommande.getProduit())) 
+		
+		for (LignCommande lignCom : panier) {
+			if (lignCommande.getProduit().equals(lignCom.getProduit())) 
 						throw new DoublonException("Produit deja existant");
-				}
+				
 		// tout va bien
-				LignCommande lignCommande = new LignCommande(produit);
-				produits.add(lignCommande);
+			else {
+				panier.add(lignCommande);
+						
+				montantPanier += lignCommande.calculMontant();
+				idPanier++;
 				
-				montant += lignCommande.calculMontant();
-				
-				
+			}	
 			
+		}
 	}
 	
 	//Getters et setters
-	public String getIdPanier() {
-		return idPanier;
-	}
-	public void setIdPanier(String idPanier) {
-		this.idPanier = idPanier;
-	}
+	
 	public double getMontantPanier() {
 		return montantPanier;
 	}
@@ -56,9 +65,7 @@ public class Panier {
 	public String toString() {
 		return "Pannier [idPanier=" + idPanier + ", montantPanier=" + montantPanier + "]";
 	}
-	public ArrayList<LignCommande> getProduits() {
-		return produits;
-	}
+	
 	
 	//toString
 	
