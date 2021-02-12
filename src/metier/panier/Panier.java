@@ -3,19 +3,47 @@ package metier.panier;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import dao.Dao;
 import exception.DoublonException;
+import metier.Abonne;
 import metier.lignCommande.LignCommande;
+import metier.technique.LignCommandes;
 import produit.metier.Produit;
 
 public class Panier {
-	private static int idPanier = 1;
+	private  int idPanier ;
 	public double montantPanier;
+	private Abonne abonne;
+	private ArrayList<LignCommande> lignPanier;
 	
-	
+	public Panier(Abonne abonne, ArrayList<LignCommande> lignCommandes) {
+		super();
+		this.abonne = abonne;
+		this.lignPanier = lignPanier;
+	}
+
+	public ArrayList<LignCommande> getLignPanier() {
+		return lignPanier;
+	}
+
+
+
+
+
+	public void setLignPanier(ArrayList<LignCommande> lignPanier) {
+		this.lignPanier = lignPanier;
+	}
+
 	private ArrayList<LignCommande> commande;
 	
 	
-	
+	public Panier(Abonne abonne) {
+		super();
+		this.abonne = abonne;
+		this.montantPanier = calculMontantPanier();
+		this.lignPanier = lignPanier;
+		
+	}
 	
 	
 	
@@ -23,12 +51,7 @@ public class Panier {
 	
 	//methode pour ajouter un produit au panier
 	
-	public Panier(ArrayList<LignCommande> commande) {
-		super();
-		this.montantPanier = 0;
-		this.commande = commande;
-	}
-
+	
 	public void ajouterlignCom(LignCommande lignCommande) throws DoublonException {
 		//control de l'objet
 		Objects.requireNonNull(lignCommande);
@@ -37,16 +60,19 @@ public class Panier {
 		
 		// si le produit est deja dans le panier, on renvoie le message " Produit deja existant"
 		
-		for (LignCommande lignCom : commande) {
-			if (lignCommande.getProduit().equals(lignCom.getProduit())) 
-						throw new DoublonException("Produit deja existant");
+		for (LignCommande lignCom : lignPanier) {
+			if (lignCom.getProduit().equals(lignCommande.getProduit())) {
+				lignCommande.setQuantite(lignCommande.getQuantite()+1);	
+				montantPanier += lignCommande.calculMontant();
+			}	
 				
 		// tout va bien
 			else {
-				commande.add(lignCommande);
+				
+				lignPanier.add(lignCommande);
 						
 				montantPanier += lignCommande.calculMontant();
-				idPanier++;
+				
 				
 			}	
 			
@@ -69,7 +95,7 @@ public class Panier {
 	
 	public double calculMontantPanier() {
 		double montantPanier = 0;
-		for (LignCommande lignCommande : commande) {
+		for (LignCommande lignCommande : lignPanier) {
 			montantPanier = montantPanier+lignCommande.calculMontant();
 		
 		}

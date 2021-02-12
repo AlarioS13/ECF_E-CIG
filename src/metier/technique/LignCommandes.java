@@ -12,11 +12,10 @@ public class LignCommandes extends ArrayList<LignCommande>{
 	private static final long serialVersionUID = 1L;
 	
 	
-	public LignCommandes() {
-	}
 	
-	public LignCommandes(ArrayList<LignCommande> lignCommandes) {
-		this.addAll(lignCommandes);
+	
+	public LignCommandes(ArrayList<LignCommande> lignCommande) {
+		this.addAll(lignCommande);
 	}
 
 }

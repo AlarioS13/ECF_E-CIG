@@ -14,7 +14,7 @@ public class Dao {
 	public static ArrayList<Employe>  employes  = initEmployes();
 	
 	//Laurent création d'une arrayList de lignPanier
-	public static ArrayList<LignCommande> lignPanier = initLignPanier();
+	public static ArrayList<LignCommande> commande = initLignPanier();
 	
 	public static ArrayList<Produit>  produits  = initProduits();
 	
@@ -142,7 +142,7 @@ public class Dao {
 		if (produits.contains(produit)) trouve = produits.get(produits.indexOf(produit));
 		return trouve;
 	}
-	
+	/*
 	private static ArrayList<Produit> initProduits() {
 		ArrayList<Produit> liste 	= new ArrayList<Produit>();
 		liste.add(new Produit(1, "KIT AEGIS X ZEUS SUBOHM GEEKVAPE", 79.90,"aegis.png"));
@@ -157,8 +157,33 @@ public class Dao {
 		liste.add(new Produit(10, "3 RÉSISTANCES GT CORE VAPORESSO", 12.90,"resistance.png"));
 		return liste;
 	}
-
-	
+*/
+	//essai
+	private static ArrayList<Produit> initProduits() {
+		ArrayList<Produit> liste 	= new ArrayList<Produit>();
+		Produit prod1 = new Produit(1, "KIT AEGIS X ZEUS SUBOHM GEEKVAPE", 79.90,"aegis.png");
+		Produit prod2= new Produit(2, "BOX REULEAUX RX 300 CUIR WISMEC", 68.90,"aegis.png");
+		Produit prod3= new Produit(3, "E-liquide POURED FERRUM CITY 100 ML", 9.90,"eliquid.png");
+		Produit prod4= new Produit(4, "E-liquide CEREAL 11 FERRUM CITY 100 ML", 9.90,"eliquid.png");
+		Produit prod5= new Produit(5, "E-liquide GREEN KELLY T-JUICE 50 ML", 9.90,"eliquid.png");
+		Produit prod6= new Produit(6, "E-liquide LIZZY RASCAL HALCYON HAZE T-JUICE 50 ML", 11.90,"eliquid.png");
+		Produit prod7= new Produit(7, "E-liquide TEXAN NICOVIP PROMO 3 MG/ML", 1.00,"eliquid.png");
+		Produit prod8= new Produit(8, "E-liquide DROGO FURIOSA SKINZ 80 ML VAPE47", 27.50,"eliquid.png");
+		Produit prod9= new Produit(9, "5 RÉSISTANCES PNP VOOPOO", 15.90,"resistance.png");
+		Produit prod10= new Produit(10, "3 RÉSISTANCES GT CORE VAPORESSO", 12.90,"resistance.png");
+		
+		liste.add(prod1);
+		liste.add(prod2);
+		liste.add(prod3);
+		liste.add(prod4);
+		liste.add(prod5);
+		liste.add(prod6);
+		liste.add(prod7);
+		liste.add(prod8);
+		liste.add(prod9);
+		liste.add(prod10);
+		return liste;
+	}
 	
 	
 	
@@ -174,7 +199,14 @@ public class Dao {
 		return listProd;
 		
 	}
-
+	private static ArrayList<LignCommande> initLigns(){
+		ArrayList<LignCommande> commande = new ArrayList<LignCommande>();
+		commande.add(3,commande.get(0));
+		commande.add(commande.get(2));
+		
+		return commande;
+		
+	}
 
 
 	public static boolean supressionLignP(int ref) {

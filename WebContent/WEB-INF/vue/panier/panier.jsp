@@ -3,7 +3,10 @@
 <%@ page import="produit.metier.Produit" %>
 <%@ page import="metier.lignCommande.LignCommande" %>
 <%@ page import="metier.panier.Panier %>
-<% request.getAttribute("produit"); %>
+<%@ page import="dao.Dao %>
+<%@ page import="java.util.ArrayList" %>
+<jsp:useBean id="panier" class="metier.panier.Panier" scope="request"/>
+<% ArrayList<LignCommande> lignPanier = (ArrayList<LignCommande>) request.getAttribute("panier"); %>
 
 <% request.setAttribute("titre", "Mon panier"); %>
 <%@ include file="/WEB-INF/include/head.jsp" %>
@@ -43,7 +46,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                      
+                      <% for (LignCommande lignCom : lignPanier) { %>
+                        <tr>
+                          <td><a href="#"><img src="<%=request.getContextPath() %>/img/<%=lignCom.getProduit().getImage() %>"  alt="" class="img-fluid"></a></td>
+                          <td><a href="#"><%=lignCom.getProduit().getNom() %></a></td>
+                          <td>
+                            <input type="number" value="<%=lignCom.getQuantite() %>" class="form-control" name="alterQuant">
+                          </td>
+                          <td><%=lignCom.getProduit().getPrix() %></td>
+                          <td>0,00€</td>
+                          <td><%=lignCom.getProduit().getPrix() %>€</td>
+                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                     <%} %>
                      
                 	
 					
@@ -52,7 +67,7 @@
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th colspan="2">69,60€</th>
+                          <th colspan="2"><%=panier.getMontantPanier() %></th>
                         </tr>
                       </tfoot>
                     </table>

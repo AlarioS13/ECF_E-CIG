@@ -1,6 +1,7 @@
 package webApp.accesPanier;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
@@ -12,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Dao;
+import exception.DoublonException;
 import metier.Abonne;
 import metier.lignCommande.LignCommande;
-import metier.technique.LignCommandes;
+import metier.panier.Panier;
 import produit.metier.Produit;
 
 /**
@@ -45,7 +47,13 @@ String path = request.getPathInfo();
 		System.out.println("je suis dans controleur abonne");
 	//	if (path == null || path =="/") 					doTricheurBis(request,response);
 	//	else if (path.startsWith("/monPanier"))				doPanier(path,request,response);
-		 if (path.startsWith("/ajouter*"))				doAjouter(path,request,response);
+		 if (path.startsWith("/ajouter*"))
+			try {
+				doAjouter(path,request,response);
+			} catch (DoublonException | ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		else if (path.startsWith("/supprimer"))				doSupprim(path, request, response);
 		else if (path.startsWith("/modifierPanier"))		doModifier(path, request,response);
 		else { 
@@ -69,20 +77,37 @@ String path = request.getPathInfo();
 		disp.forward(request,response);
 
 	}
-	private void doAjouter(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doAjouter(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, DoublonException{
 		
+		// recuperation de la session
+					HttpSession session = request.getSession(true);
+					Abonne abonneSession = (Abonne) session.getAttribute("abonne");
+					
+					
+		// creation de la ligne de commande
 		int prodAAjouter = Integer.parseInt(request.getParameter("ref"));
+		try {
 		for (Produit  produit : Dao.produits) {
 			if (prodAAjouter == produit.getRef()) {
 				Produit prod = produit;
-				LignCommande lignCommande = new LignCommande(produit);
-				lignCommande.add(prod);
+			
+				LignCommande lignComm = new LignCommande(prod);
 				
-				request.setAttribute("produit", lignCommande);
+				Panier pan = new Panier(abonneSession);
+				pan.ajouterlignCom(lignComm);
+				
+				
+				request.setAttribute("panier", pan);
 				disp = request.getRequestDispatcher("/panier");
 				disp.forward(request,response);
-			}
-		}
+				
+			}				
+		} 
+			
+		}catch(DoublonException db) {
+			
+		};
+	
 		
 	}
 	
