@@ -14,7 +14,7 @@ public class Dao {
 	public static ArrayList<Employe>  employes  = initEmployes();
 	
 	//Laurent création d'une arrayList de lignPanier
-	public static ArrayList<LignCommande> lignPaniers = initLignPaniers();
+	public static ArrayList<LignCommande> lignPanier = initLignPanier();
 	
 	public static ArrayList<Produit>  produits  = initProduits();
 	
@@ -166,7 +166,7 @@ public class Dao {
 	
 		
 	
-	private static ArrayList<LignCommande> initLignPaniers () {
+	private static ArrayList<LignCommande> initLignPanier () {
 	
 		ArrayList<LignCommande> listProd = new ArrayList<LignCommande>();
 		

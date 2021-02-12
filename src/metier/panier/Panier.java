@@ -12,7 +12,7 @@ public class Panier {
 	public double montantPanier;
 	
 	
-	private ArrayList<LignCommande> panier;
+	private ArrayList<LignCommande> commande;
 	
 	
 	
@@ -23,10 +23,10 @@ public class Panier {
 	
 	//methode pour ajouter un produit au panier
 	
-	public Panier(ArrayList<LignCommande> panier) {
+	public Panier(ArrayList<LignCommande> commande) {
 		super();
 		this.montantPanier = 0;
-		this.panier = panier;
+		this.commande = commande;
 	}
 
 	public void ajouterlignCom(LignCommande lignCommande) throws DoublonException {
@@ -37,13 +37,13 @@ public class Panier {
 		
 		// si le produit est deja dans le panier, on renvoie le message " Produit deja existant"
 		
-		for (LignCommande lignCom : panier) {
+		for (LignCommande lignCom : commande) {
 			if (lignCommande.getProduit().equals(lignCom.getProduit())) 
 						throw new DoublonException("Produit deja existant");
 				
 		// tout va bien
 			else {
-				panier.add(lignCommande);
+				commande.add(lignCommande);
 						
 				montantPanier += lignCommande.calculMontant();
 				idPanier++;
@@ -56,6 +56,7 @@ public class Panier {
 	//Getters et setters
 	
 	public double getMontantPanier() {
+		
 		return montantPanier;
 	}
 	public void setMontantPanier(double montantPanier) {
@@ -66,7 +67,14 @@ public class Panier {
 		return "Pannier [idPanier=" + idPanier + ", montantPanier=" + montantPanier + "]";
 	}
 	
-	
+	public double calculMontantPanier() {
+		double montantPanier = 0;
+		for (LignCommande lignCommande : commande) {
+			montantPanier = montantPanier+lignCommande.calculMontant();
+		
+		}
+		return montantPanier;
+	}
 	//toString
 	
 	

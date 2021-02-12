@@ -21,15 +21,6 @@ public class LignCommande {
 		this.produit = produit;
 	}
 	
-	//methode
-	/*	public double calculMontant() {
-		Objects.requireNonNull(produit);
-		try {
-			double montant = getProduit().getPrix()*quantite;
-			return montant;
-		}catch 
-		
-	}*/
 	
 	
 	//getters et setters
