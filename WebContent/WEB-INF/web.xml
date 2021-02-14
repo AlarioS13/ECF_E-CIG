@@ -16,6 +16,18 @@
 		<param-name>errorPage</param-name>
 		<param-value>/WEB-INF/vue/erreur/errorPage.jsp</param-value>
 	</context-param>
+	
+		<!-- Désactivation pour test -->
+<!-- 	  <error-page>
+  	<error-code>404</error-code>
+	<location>/vue/error/404.jsp</location>
+  </error-page>
+	
+	  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/vue/error/pageErrorData.jsp</location>
+  </error-page> -->
+	
 
 
 <!-- 	<taglib>
