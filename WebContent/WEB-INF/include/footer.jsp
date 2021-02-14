@@ -10,10 +10,9 @@
           <div class="col-lg-4 col-md-6">
             <h4 class="mb-3">Plan du site</h4>
             <ul class="list-unstyled">
-              <li><a href="<%=request.getContextPath()%>/index.jsp">Accueil</a></li>
-              <li><a href="#"> Nos produits</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Admin</a></li>
+              <li><a href="<%=request.getContextPath()%>/e-cig/">Accueil</a></li>
+              <li><a href="<%=request.getContextPath()%>/e-cig/produits"> Nos produits</a></li>
+              <li><a href="<%=request.getContextPath()%>/e-cig/">Blog</a></li>
               <li><a href="<%=request.getContextPath()%>/faq.jsp">FAQ</a></li>
               <li><a href="<%=request.getContextPath()%>/contact.jsp">Nous contacter</a></li>
             </ul>
@@ -21,7 +20,7 @@
             <h4 class="mb-3">Section Abonné</h4>
             <ul class="list-unstyled">
               <li><a href="#" data-toggle="modal" data-target="#login-modal">Connexion</a></li>
-              <li><a href="<%=request.getContextPath()%>/register.jsp">S'enregistrer</a></li>
+              <li><a href="<%=request.getContextPath()%>/e-cig/enregistrer">S'enregistrer</a></li>
             </ul>
           </div>
           <div class="col-lg-4 col-md-6">
