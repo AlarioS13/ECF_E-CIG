@@ -22,28 +22,27 @@
 }
 
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: #DAA520; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 30px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: #DAA520; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
 }
 
 #myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+	background-color: #555; /* Add a dark-grey background on hover */
 }
 /* pour l'icone oeil sur espace abo mot de passe */
-
 .fa-eye, .fa-arrow-up {
-	color : white !important;
+	color: white !important;
 }
 
 /* Smooth scrolling IF user doesn't have a preference due to motion sensitivities */
@@ -58,88 +57,85 @@
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
 	text-align: justify;
-	
 }
+
 .wrap_l {
 	display: flex !important;
 	align-items: center;
-  	justify-content: space-around;
+	justify-content: space-around;
 	flex-direction: row !important;
-  	background-color: rgb(41, 63, 50) !important;
-  	color: rgb(255, 255, 255) !important;
-  	border: 2px;
+	background-color: rgb(41, 63, 50) !important;
+	color: rgb(255, 255, 255) !important;
+	border: 2px;
 	border-style: solid;
-	border-color: rgb(218,165,31);
+	border-color: rgb(218, 165, 31);
 	margin: 10px;
 	padding: 5px;
-	-moz-border-radius:7px;
-	-webkit-border-radius:7px;
-	border-radius:7px;
-  	
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
 }
 /* le row reverse n'est la que pour garder le meme ordre d'insertion texte/img*/
 .wrap2_l {
 	display: flex !important;
 	align-items: center;
-  	justify-content: space-around;
+	justify-content: space-around;
 	flex-direction: row-reverse !important;
-  	background-color: rgb(2, 68, 64) !important;
-  	color: rgb(255, 255, 255) !important;
-  	border: 2px;
+	background-color: rgb(2, 68, 64) !important;
+	color: rgb(255, 255, 255) !important;
+	border: 2px;
 	border-style: solid;
-	border-color: rgb(218,165,31);
+	border-color: rgb(218, 165, 31);
 	margin: 10px;
 	padding: 5px;
-	-moz-border-radius:7px;
-	-webkit-border-radius:7px;
-	border-radius:7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
 }
+
 .un_L {
 	display: flex;
-  	align-items: center;
-  	
+	align-items: center;
 	margin: 5px;
-  	padding: 3px;
+	padding: 3px;
 }
+
 .deux_L {
-  	
 	margin: 5px;
-  	padding: 3px;
-  	
+	padding: 3px;
 }
+
 .trois_L {
-	
 	margin: 5px;
-  	padding: 3px;
+	padding: 3px;
 }
+
 .quatre_L {
-  
 	margin: 5px;
-  	padding: 3px;
-  	
+	padding: 3px;
 }
 
 .arrondi {
-	border-radius:7px;
+	border-radius: 7px;
 }
-.essai_L{
+
+.essai_L {
 	text-align: center;
 }
-.conclu_l{
-	display: flex ;
+
+.conclu_l {
+	display: flex;
 	align-items: center;
-  	background-color: rgb(2, 68, 64) !important;
-  	color: rgb(255, 255, 255) !important;
-  	border: 2px;
+	background-color: rgb(2, 68, 64) !important;
+	color: rgb(255, 255, 255) !important;
+	border: 2px;
 	border-style: solid;
-	border-color: rgb(218,165,31);
+	border-color: rgb(218, 165, 31);
 	margin: 10px;
 	padding: 5px;
-	-moz-border-radius:7px;
-	-webkit-border-radius:7px;
-	border-radius:7px;
-	
-	
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
 }
 
 /*Ajout du redimensionnement des blocks en dessous de 800px (pour les petits écrans)*/
@@ -151,22 +147,23 @@
 }
 
 /*pour faire du responsive mais que sur les tout petits ecrans */
-@media screen and (max-width: 600px){
-    .deux_L{
-        display: none;
-    }
-    .quatre_L{
-    	display: none;
-    }
+@media screen and (max-width: 600px) {
+	.deux_L {
+		display: none;
+	}
+	.quatre_L {
+		display: none;
+	}
 }
-	
-/* css pour la page panier*/
 
-#overb.box{
+/* css pour la page panier*/
+#overb.box {
 	background-color: white !important;
 }
 
-/* Début CSS perso Enrick */
+/**************************
+*Début CSS perso Enrick   *
+**************************/
 
 /* Header/Blog Titre */
 .header_nrik {
@@ -176,7 +173,6 @@
 	background: #efede3;
 	border-radius: 15px;
 }
-
 
 .h1_nrik {
 	color: black;
@@ -262,9 +258,8 @@
 	padding: 20px;
 }
 /*FIN DE GESTION D'IMAGE */
-
 .p_nrik {
-	color:#363636;
+	color: #363636;
 }
 /* Effet de couleur sur les card */
 .card_nrik {
@@ -279,5 +274,10 @@
 	display: table;
 	clear: both;
 }
-
+/* Message perso pour Action Employé*/
+.bs-example {
+	margin: 20px;
+	color: red;
+	position: relative;
+}
 /* Fin CSS perso Enrick */
