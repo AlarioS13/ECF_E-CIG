@@ -32,7 +32,7 @@ public class GererIdentification extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// SOFIEN
 		// Je créé un objet session
 		HttpSession session = request.getSession();	
 
@@ -44,7 +44,7 @@ public class GererIdentification extends HttpServlet {
 
 		// Je vérifie s'il existe dans la dao et s'il existe je le recup
 		Abonne a = null;
-		// Vérification de l'existence dans la liste des employés de la dao
+		// ENRICK - Vérification de l'existence dans la liste des employés de la dao
 		Employe employe = Dao.getEmploye(mail, pw);
 		
 		if (Dao.getAbonneByMail(mail) != null) {
@@ -67,7 +67,7 @@ public class GererIdentification extends HttpServlet {
 				session.setAttribute("employe", employeSession);
 				response.sendRedirect(request.getContextPath());
 				
-		// Sinon j'affiche une page d'erreur
+		// SOFIEN / ENRICK Sinon j'affiche une page d'erreur
 		} else {
 			request.setAttribute("message", "Cet utilisateur et mot de passe n'existent pas");
 			String chemin = this.getServletContext().getInitParameter("errorPage");
