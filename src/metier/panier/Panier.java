@@ -3,12 +3,9 @@ package metier.panier;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import dao.Dao;
 import exception.DoublonException;
 import metier.Abonne;
 import metier.lignCommande.LignCommande;
-import metier.technique.LignCommandes;
-import produit.metier.Produit;
 
 public class Panier {
 	private  int idPanier ;

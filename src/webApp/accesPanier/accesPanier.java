@@ -116,7 +116,7 @@ String path = request.getPathInfo();
 
 		if (request.getMethod() == "GET") {
 			request.setAttribute("message", "Url invalide !!");
-			request.getRequestDispatcher(this.getServletContext().getInitParameter("erreurLogin"));
+			request.getRequestDispatcher(this.getServletContext().getInitParameter("erreur"));
 		}
 		else {
 			System.out.println("Je suis dans supprimer abonne Post");
