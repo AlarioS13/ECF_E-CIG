@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Dao;
+import metier.Employe;
 import produit.dao.Daoprod;
 import produit.metier.Produit;
 
@@ -68,6 +70,7 @@ public class Master extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	// Redirige vers l'accueil
 	private void goAccueil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Go accueil");
 		disp = request.getRequestDispatcher("/index.jsp");
@@ -131,12 +134,14 @@ public class Master extends HttpServlet {
 		disp.forward(request,response);	
 	}
 	private void goAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Go Admin");
-		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/listeEmploye.jsp");
+		System.out.println("Dans goAdmin");
+		ArrayList<Employe> listDesEmployes = Dao.employes;
+		request.setAttribute("employes", listDesEmployes);
+		disp = request.getRequestDispatcher("/admin/list");
 		disp.forward(request,response);	
 	}
 	private void goListeAbo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Go sur liste abonnÃ©");
+		System.out.println("Go sur liste abonnée");
 		disp = request.getRequestDispatcher("/WEB-INF/vue/abonneListe.jsp");
 		disp.forward(request,response);	
 	}
@@ -147,8 +152,8 @@ public class Master extends HttpServlet {
 	}
 	
 	private void goCrea(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Go creation employï¿½");
-		disp = request.getRequestDispatcher("/WEB-INF/vue/employe/creationEmploye.jsp");
+		System.out.println("Go creation employés");
+		disp = request.getRequestDispatcher("/admin/creaEmp");
 		disp.forward(request,response);
 		
 	}
