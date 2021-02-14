@@ -39,9 +39,8 @@ if ((Employe)session.getAttribute("employe") != null) {
                 <li class="list-inline-item">
                 <% if (abonne != null){ %> 
                 	<a href="<%=request.getContextPath()%>/e-cig/profil"> Bonjour <%= abonne.getNom() %> </a>
-                	 <% } else if (employeSession != null) {%>
-                	 Bonjour <%= employeSession.getNomEmploye() %>  
-                	 <% }else { %> Bonjour Utilisateur <% } %></li>
+                	 <% } else if (employeSession != null) {%> <a class="text-warning">Bonjour <%= employeSession.getPrenomEmploye() %></a>
+						<% }else { %> Bonjour Utilisateur <% } %>
                 
               </ul>
             </div>
@@ -57,10 +56,10 @@ if ((Employe)session.getAttribute("employe") != null) {
               <div class="modal-body">
                 <form action="<%=request.getContextPath()%>/gererIdentification" method="post">
                   <div class="form-group">
-                    <input id="email" name="email" type="text" placeholder="votre email" class="form-control">
+                    <input id="email" name="email" type="text" placeholder="votre email" class="form-control" value="dupont.joe@mail.com">
                   </div>
                   <div class="form-group">
-                    <input id="pw" name="pw" type="password" placeholder="votre mot de passe" class="form-control">
+                    <input id="pw" name="pw" type="password" placeholder="votre mot de passe" class="form-control" value="dupjo12">
                   </div>
                   <p class="text-center">
                     <button type ="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i>Connexion</button>
@@ -128,7 +127,7 @@ if ((Employe)session.getAttribute("employe") != null) {
 <!-- pages personnelles de chaque membre du groupe -->
                         <ul class="list-unstyled mb-3">
                           <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin" class="nav-link">Liste des employés</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link"> --- </a></li>
+                          <li class="nav-item"><a href="<%=request.getContextPath()%>/e-cig/admin/creaEmp" class="nav-link">Création d'un employé</a></li>
                           <li class="nav-item"><a href="#"> --- </a></li>
                         </ul>
                       </div>
