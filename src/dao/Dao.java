@@ -7,6 +7,7 @@ import metier.Employe;
 import metier.EmployeCoordonnees;
 import metier.Responsable;
 import metier.Salarie;
+import webApp.exception.RefInvalidException;
 
 public class Dao {
 
@@ -14,7 +15,8 @@ public class Dao {
 	
 	// Enrick création d'une arrêt liste employé
 	public static ArrayList<Employe>  employes  = initEmployes();
-	// SOFIEN
+	
+	// ------------- SOFIEN ------------------
 	
 	public static Abonne getAbonneById(String id) {
 
@@ -106,7 +108,7 @@ public class Dao {
 
 	}
 	
-	// DEBUT CODE ENRICK
+	// ---------------- DEBUT CODE ENRICK ------------------------
 
 		// ENRICK - Get employé avec ID en paramètre de type chaine de caractère
 		/**
@@ -179,9 +181,9 @@ public class Dao {
 			return modifOk;
 		}
 
+
 		// ENRICK - Array list des employés
 		private static ArrayList<Employe> initEmployes() {
-
 			// Instatiation des employés: Soit de type Responsable, soit de type Salarié
 			Employe res01 = new Responsable("01", "Mr", "Dupont", "Joe", LocalDate.parse("1976-04-21"),
 					"dupont.joe@mail.com", "dupjo12", "06.12.23.34.45",
@@ -218,7 +220,8 @@ public class Dao {
 
 			return employes;
 		}
-	// FIN DE CODE ENRICK
+		
+	// ----------------- FIN DE CODE ENRICK -------------------
 	
 	
 
