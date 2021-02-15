@@ -17,7 +17,7 @@
 		<param-value>/WEB-INF/vue/erreur/errorPage.jsp</param-value>
 	</context-param>
 	
-		<!-- Désactivation pour test -->
+		<!-- Désactivation pour test /!\ A remettre !! -->
 <!-- 	  <error-page>
   	<error-code>404</error-code>
 	<location>/vue/error/404.jsp</location>
