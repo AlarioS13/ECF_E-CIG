@@ -1,0 +1,26 @@
+//////////////////******************************\\\\\\\\\\\\\\\\\\\\\\
+INFORMATIONS
+
+1 : La fonctionnalité dont je m'occupe est la partie concernant l'employé
+Packages:
+ - src: 
+ 		dao
+ 		metier (Employé - EmployéCoordonnees - Responsable - Salarie)
+ 		metier.technique (employes).
+ 		webApp.gestionEmploye (EmployeControl)
+ 		webApp.masterControl (Master)
+ 		webApp.test (test1CreerRef)
+ - WebContent :
+ 		css (custom)
+ 		vue / error (404.jsp  - PageErrorData.jsp)
+ 		/ WEB-INF
+ 		 		include (navbar)
+ 				vue / employe (creationEmploye.jsp - listeEmploye.jsp)
+ 		web.xml
+1 : L'erreur concernant la jsp espaceAbonne n'est pas de mon faite. Une correction mineur sera bientôt réalisée. 
+2 : pour la connexion le nom d'utilisateur est rentrée en dur dans la navbar : 
+		email : "dupont.joe@mail.com"
+		pw    :"dupjo12"
+		
+3 : les tests ont été effectué sur la methode permettant la création d'un identifiant de référencement des employés.
+4 : la classes EmployeCoordonneés a été ajouté afin de permettre une meilleur gestion des coordonnées des employés.
