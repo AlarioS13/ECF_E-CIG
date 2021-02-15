@@ -6,6 +6,8 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import webApp.exception.RefInvalidException;
+
 
 /**
  * 
@@ -46,6 +48,7 @@ public class Employe {
 	public Employe (String idEmploye) {
 		this.idEmploye = idEmploye;
 		this.nomEmploye = "inconnu";
+		this.dateNaissEmploye = LocalDate.parse("1990-01-12");
 		this.coordonnee = new EmployeCoordonnees("inconnue", 12345, "inconnue"); // coordonnées avec des valeurs! 
 	}
 
@@ -61,7 +64,7 @@ public class Employe {
 	 * @param emailEmploye : émail de l'employé.
 	 * @param mdpEmploye : mot de passe de l'employé
 	 * @param numTelEmploye : numéro de téléphone de l'employé
-	 * @param coordonnee : coordonnée de l'employé sous forme (libellé de la rue, cdp, nom de la ville).
+	 * @param coordonnee : coordonnée de l'employé sous forme (libellé de la rue, cdp, nom de la ville). 
 	 */
 	// Constructeur standard avec initialisation des champs
 	public Employe(String idEmploye, String civEmploye, String nomEmploye, String prenomEmploye,
@@ -95,9 +98,9 @@ public class Employe {
 	 */
 	public Employe(String idEmploye, String refEmploye, String civEmploye, String nomEmploye,
 			String prenomEmploye, LocalDate dateNaissEmploye, String emailEmploye,
-			String numTelEmploye, EmployeCoordonnees coordonnee) {
+			String numTelEmploye, EmployeCoordonnees coordonnee){
 		this.idEmploye = idEmploye;
-		this.refEmploye = refEmploye;
+		setRefEmploye(creerRef());
 		this.civEmploye = civEmploye;
 		this.nomEmploye = nomEmploye;
 		this.prenomEmploye = prenomEmploye;
@@ -119,13 +122,15 @@ public class Employe {
 	 * 	+ Les 2 premières initiales du nom de famille de l'empoyé
 	 * 	+ le chiffre 0
 	 * 	+ le mois de naissance de l'employé).</p>
+	 * @throws RefInvalidException 
 	 **/
 	// Méthode créant la référence de l'employé en fonction de son statut
-	public String creerRef() {
+	public String creerRef(){
 		String statut = null;
 		if (getNomEmploye() != null && getNomEmploye().length() > 1) 
 			statut = "EM" + getNomEmploye().toUpperCase().trim().substring(0,2) + 0 + getDateNaissEmploye().getMonthValue();
-		
+		else if(getNomEmploye()==null || getNomEmploye().length()<1 || getDateNaissEmploye()==null)
+			statut = "EMaaa01";
 		return statut;
 	}
 	
@@ -185,7 +190,8 @@ public class Employe {
 	}
 
 	public void setNomEmploye(String nomEmploye) {
-		this.nomEmploye = nomEmploye;
+		if(nomEmploye==null)	this.nomEmploye = "inconnue";
+		else					this.nomEmploye = nomEmploye;
 	}
 
 	public void setPrenomEmploye(String prenomEmploye) {
@@ -193,7 +199,8 @@ public class Employe {
 	}
 	
 	public void setDateNaissEmploye(LocalDate dateNaissEmploye) {
-		this.dateNaissEmploye = dateNaissEmploye;
+		if(dateNaissEmploye==null) 	this.dateNaissEmploye = LocalDate.parse("1981-01-01");
+		else						this.dateNaissEmploye = dateNaissEmploye;
 	}
 
 	public void setEmailEmploye(String emailEmploye) {

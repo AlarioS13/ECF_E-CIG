@@ -14,11 +14,12 @@ public class Salarie extends Employe {
 	 *<p>Permet de créer le référencement dans la société d'un salarié.</p>
 	 */
 	// Méthode créant la référence de l'employé en fonction de son statut
-	public String creerRef() {
+	public String creerRef(){
 		String statut = null;
 		if (getNomEmploye() != null && getNomEmploye().length() > 1) 
 			statut = "SA" + getNomEmploye().toLowerCase().trim().substring(0,2) + 0 + getDateNaissEmploye().getMonthValue();
-		
+		else if(getNomEmploye()==null || getNomEmploye().length()<1 || getDateNaissEmploye()==null)
+			statut = "SAaaa01";
 		return statut;
 	}
 
@@ -54,10 +55,11 @@ public class Salarie extends Employe {
 	 * @param mdpEmploye
 	 * @param numTelEmploye
 	 * @param coordonnee
+	 * @throws RefInvalidException 
 	 */
 	public Salarie(String idEmploye, String civEmploye, String nomEmploye, String prenomEmploye,
 			LocalDate dateNaissEmploye, String emailEmploye, String mdpEmploye, String numTelEmploye,
-			EmployeCoordonnees coordonnee) {
+			EmployeCoordonnees coordonnee){
 		super(idEmploye, civEmploye, nomEmploye, prenomEmploye, dateNaissEmploye, emailEmploye, mdpEmploye, numTelEmploye,
 				coordonnee);
 		setRefEmploye(creerRef());

@@ -51,7 +51,7 @@ public class Responsable extends Employe {
 	 * @param coordonnee
 	 */
 	public Responsable(String idEmploye, String refEmploye, String civEmploye, String nomEmploye, String prenomEmploye,
-			LocalDate dateNaissEmploye, String emailEmploye, String numTelEmploye, EmployeCoordonnees coordonnee) {
+			LocalDate dateNaissEmploye, String emailEmploye, String numTelEmploye, EmployeCoordonnees coordonnee){
 		super(idEmploye, refEmploye, civEmploye, nomEmploye, prenomEmploye, dateNaissEmploye, emailEmploye, numTelEmploye,
 				coordonnee);
 	}
@@ -61,11 +61,12 @@ public class Responsable extends Employe {
 	 *<p>Permet de créer le référencement dans la société d'un salarié.</p>
 	 */
 	// Méthode créant la référence de l'employé en fonction de son statut
-	public String creerRef() {
+	public String creerRef(){
 		String statut = null;
 		if (getNomEmploye() != null && getNomEmploye().length() > 1) 
 			statut = "RE" + getNomEmploye().toLowerCase().trim().substring(0,2) + 0 + getDateNaissEmploye().getMonthValue();
-		
+		else if(getNomEmploye()==null || getNomEmploye().length()<1 || getDateNaissEmploye()==null)
+			statut = "REaaa00";
 		return statut;
 	}
 
