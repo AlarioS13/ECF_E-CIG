@@ -17,6 +17,7 @@ import dao.Dao;
 import metier.Employe;
 import metier.EmployeCoordonnees;
 import metier.Salarie;
+import webApp.exception.RefInvalidException;
 
 /**
  * Servlet implementation class EmployeControl
@@ -89,8 +90,10 @@ public class EmployeControl extends HttpServlet {
 	 * @param response
 	 * @throws ServletException
 	 * @throws IOException
+	 * @throws RefNullException 
+	 * @throws RefInvalidException 
 	 */
-	private void doCrea(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doCrea(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("EmployControl.java - dans doCrea");
 		
 		// Récupération de la session de l'employé
@@ -186,7 +189,7 @@ public class EmployeControl extends HttpServlet {
 				System.out.println("l'employé (N° " + idEmploye + ") a bien été supprimé ");
 
 				// rediriger vers la liste des employés
-				if (ok)			request.setAttribute("msgEmploye", "L'employe " + idEmploye + " a été supprim&eacute;");
+				if (ok)			request.setAttribute("msgEmploye", "L'employe " + idEmploye + " a été supprimé!");
 				else			request.setAttribute("msgEmploye", "Vous n'avez sélectionné aucun employé!");
 
 				goListEmploye(request, response);
