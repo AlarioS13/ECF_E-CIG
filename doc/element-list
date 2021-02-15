@@ -1,0 +1,11 @@
+dao
+metier
+metier.technique
+produit.dao
+produit.metier
+produit.webApp
+webApp.exception
+webApp.gestionAbonne
+webApp.gestionEmploye
+webApp.masterControl
+webApp.test
