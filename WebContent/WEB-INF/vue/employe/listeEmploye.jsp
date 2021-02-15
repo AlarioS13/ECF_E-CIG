@@ -6,7 +6,7 @@
 <%@ page import="metier.Salarie"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dao.Dao"%>
-<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.LocalDate"%>
 <%@ page errorPage="/WEB-INF/vue/erreur/errorPage.jsp"%>
 <jsp:useBean id="employe" class="metier.Employe" scope="session" />
 <jsp:useBean id="employeSelec" class="metier.Employe" scope="request" />
@@ -62,6 +62,9 @@
 				<div id="contact" class="box rounded">
 					<h1>Gestion des employés</h1>
 				</div>
+				<!--  Message de confirmation -->
+				<div class="text-warning" id="snackbar"><%=msgEmploye.toUpperCase()%></div>
+				<!-- Fin du message de confirmation -->
 			</div>
 			<div class="col-lg-12">
 				<div class="box rounded">
@@ -107,16 +110,18 @@
 												<div
 													class="custom-control custom-control-inline custom-radio">
 													<input type="radio" class="custom-control-input"
-														id="civRadioMonsieur" name="radioBtnEmploye" 
-														<%if (employeSelec.getCivEmploye()=="Mr") { %> checked<%}%> disabled>
-														<label class="custom-control-label" for="civRadioMonsieur">Monsieur</label>
+														id="civRadioMonsieur" name="radioBtnEmploye"
+														<%if (employeSelec.getCivEmploye()=="Mr") { %> checked
+														<%}%> disabled> <label
+														class="custom-control-label" for="civRadioMonsieur">Monsieur</label>
 												</div>
 												<div
 													class="custom-control custom-control-inline custom-radio">
 													<input type="radio" class="custom-control-input"
-														id="civRadioMadame" name="radioBtnEmploye" 
-														<%if (employeSelec.getCivEmploye()=="Mme") { %>checked<%} %> disabled>
-														<label class="custom-control-label" for="civRadioMadame">Madame</label>
+														id="civRadioMadame" name="radioBtnEmploye"
+														<%if (employeSelec.getCivEmploye()=="Mme") { %> checked
+														<%} %> disabled> <label
+														class="custom-control-label" for="civRadioMadame">Madame</label>
 												</div>
 											</div>
 										</div>
@@ -172,40 +177,32 @@
 													id="rueEmploye" class="form-control" type="text"
 													name="rueEmploye" placeholder="Entrer votre adresse"
 													<% if (employeSelec.getCoordonnee() != null)  { %>
-														value="<%=employeSelec.getCoordonnee().getAdressRueEmploye()%> "
-													<% } else { %>
-														value=""
-													<% } %>
-													size="70">
+													value="<%=employeSelec.getCoordonnee().getAdressRueEmploye()%> "
+													<% } else { %> value="" <% } %> size="70">
 											</div>
 											<div class="col-md-2">
 												<label for="cdpEmploye">Code postal</label> <input
 													id="cdpEmploye" class="form-control" type="number"
 													name="cdpEmploye" placeholder="13006"
 													<% if (employeSelec.getCoordonnee() != null)  { %>
-														value="<%=employeSelec.getCoordonnee().getCdpEmploye()%>"
-													<% } else { %>
-														value=""
-													<% } %>
-													
-													size="5" min="01000" max="99000">
+													value="<%=employeSelec.getCoordonnee().getCdpEmploye()%>"
+													<% } else { %> value="" <% } %> size="5" min="01000"
+													max="99000">
 											</div>
 											<div class="col-md-4">
 												<label for="villeEmploye">Ville</label> <input
 													id="villeEmploye" class="form-control" type="text"
 													name="villeEmploye" placeholder="Marseille" size="60"
-												    <% if (employeSelec.getCoordonnee() != null)  { %>
-														value="<%=employeSelec.getCoordonnee().getNomVille()%> "
-													<% } else { %>
-														value=""
-													<% } %>
-													>
+													<% if (employeSelec.getCoordonnee() != null)  { %>
+													value="<%=employeSelec.getCoordonnee().getNomVille()%> "
+													<% } else { %> value="" <% } %>>
 											</div>
 
 										</div>
 									</div>
 									<button data-toggle="collapse" data-target="#modif"
-									type="submit" formaction="<%=request.getContextPath()%>/admin/modif"
+										type="submit"
+										formaction="<%=request.getContextPath()%>/admin/modif"
 										class="btn btn-primary">Modifier</button>
 								</form>
 							</div>
@@ -245,15 +242,16 @@
 									<div>
 										<button id="btnModif" data-toggle="collapse"
 											data-target="#modif" class="btn btn-info navbar-toggler"
-											data-toggle="tooltip" data-placement="top" title="Modification"
+											data-toggle="tooltip" data-placement="top"
+											title="Modification"
 											formaction="<%=request.getContextPath()%>/admin/affich">
 											<span class="sr-only">modifier</span> <i
 												class="fa fa-pencil-square-o"></i>
 										</button>
-										<button class="btn btn-danger navbar-toggler" 
-										data-toggle="tooltip" data-placement="top" title="Suppression"
-										id="btnSupp" onclick="myMessEmploye()" 
-										formaction="<%=request.getContextPath()%>/admin/supp">
+										<button class="btn btn-danger navbar-toggler"
+											data-toggle="tooltip" data-placement="top"
+											title="Suppression" id="btnSupp" onclick="myMessEmploye()"
+											formaction="<%=request.getContextPath()%>/admin/supp">
 											<span class="sr-only">supprimer</span> <i
 												class="fa fa-user-times"></i>
 										</button>
@@ -271,11 +269,6 @@
 		</div>
 		<!-- /.col-lg-9-->
 	</div>
-	<!--  Message de confirmation -->
-	
-<div id="snackbar"><%= msgEmploye %></div>
-
-	<!-- Fin du message de confirmation -->
 </div>
 <!--  Footer de la page -->
 <%@ include file="/WEB-INF/include/footer.jsp"%>

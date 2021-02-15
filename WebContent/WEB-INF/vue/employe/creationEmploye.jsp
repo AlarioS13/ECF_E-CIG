@@ -68,6 +68,9 @@
 				<div id="creatEmploye" class="box">
 					<h1>CR&Eacute;ATION D'UN EMPLOY&Eacute;</h1>
 				</div>
+				<!--  Message de confirmation -->
+				<div class="text-warning" id="snackbar"><%=msgEmploye.toUpperCase()%></div>
+				<!-- Fin du message de confirmation -->
 
 				<div class="box">
 					<form role="creation"
@@ -162,7 +165,7 @@
 									<label for="cdpEmploye">Code postal</label> <input
 										id="cdpEmploye" class="form-control" type="number"
 										name="cdpEmploye" placeholder="13006" size="5" min="01000"
-										max="99000"" value="13006" title="Indiquez le code postal"
+										max="99000" " value="13006" title="Indiquez le code postal"
 										required>
 								</div>
 								<div class="col-md-4">
@@ -175,8 +178,9 @@
 
 							</div>
 						</div>
-						<button onclick="myMessEmploye()" type="submit" data-toggle="tooltip" data-placement="top"
-						title="Créer un employé"
+						<button onclick="myMessEmploye()" type="submit"
+							data-toggle="tooltip" data-placement="top"
+							title="Créer un employé"
 							formaction="<%=request.getContextPath()%>/admin/crea"
 							class="btn btn-primary">Cr&eacute;er</button>
 					</form>
@@ -186,10 +190,6 @@
 			<!-- /.col-lg-9-->
 		</div>
 	</div>
-	<!--  Message de confirmation -->
-<div id="snackbar"><%= msgEmploye %></div>
-
-	<!-- Fin du message de confirmation -->
 </div>
 
 <!--  Footer de la page -->
