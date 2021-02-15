@@ -1,5 +1,6 @@
 
 <%@ page import="dao.Dao"%>
+<%@ page import="metier.Abonne" %>
 
 
 <% request.setAttribute("titre", "Votre espace"); %>
@@ -16,7 +17,7 @@ Abonne abonneComplet  = null;
 String pw = null;
 String prenom = null;
 if (abonne != null) {
-	abonneComplet = Dao.getAbonne(abonne.getMail());
+	abonneComplet = Dao.getAbonneById(abonne.getMail());
 	pw = abonneComplet.getPw();
 	prenom = abonneComplet.getPrenom();
 }
